@@ -16,59 +16,33 @@ class _gamevs1_1State extends State<gamevs1_1> {
   void Setscore1() {
     setState(() {
       i += 1;
-      if (i == 1) {
-        s1[0] = '10';
-        s2[0] = ' 9';
-        r[0] = 'ROUND 1';
-        s1[3] += 10;
-        s2[3] += 9;
-      } else if (i == 2) {
-        s1[1] = '10';
-        s2[1] = ' 9';
-        r[1] = 'ROUND 2';
-        s1[3] += 10;
-        s2[3] += 9;
-      } else {
-        s1[2] = '10';
-        s2[2] = ' 9';
-        r[2] = 'ROUND 3';
-        s1[3] += 10;
-        s2[3] += 9;
+      s1[i-1] = '10';
+      s2[i-1] = '   9';
+      s1[3] += 10;
+      s2[3] += 9;
+      r[i-1] = "ROUND $i";
+      if(i == 3){
         s1[4] = s1[3].toString();
         s2[4] = s2[3].toString();
-        r[3] = 'TOTAL';
+        r[3] = "TOTAL";
       }
     });
   }
-
   void Setscore2() {
     setState(() {
       i += 1;
-      if (i == 1) {
-        s1[0] = '   9';
-        s2[0] = '10';
-        r[0] = 'ROUND 1';
-        s1[3] += 9;
-        s2[3] += 10;
-      } else if (i == 2) {
-        s1[1] = '   9';
-        s2[1] = '10';
-        r[1] = 'ROUND 2';
-        s1[3] += 9;
-        s2[3] += 10;
-      } else {
-        s1[2] = '   9';
-        s2[2] = '10';
-        r[2] = 'ROUND 3';
-        s1[3] += 9;
-        s2[3] += 10;
+      s1[i-1] = ' 9';
+      s2[i-1] = '10';
+      s1[3] += 9;
+      s2[3] += 10;
+      r[i-1] = "ROUND $i";
+      if(i == 3){
         s1[4] = s1[3].toString();
         s2[4] = s2[3].toString();
-        r[3] = 'TOTAL';
+        r[3] = "TOTAL";
       }
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -258,7 +232,6 @@ class _gamevs1_1State extends State<gamevs1_1> {
                         )
                       ],
                     ),
-
                     if (i >= 2) Divider(thickness: 0.5, color: Colors.grey),
                     /////////// แทบ score3
                     SizedBox(
@@ -307,7 +280,7 @@ class _gamevs1_1State extends State<gamevs1_1> {
                                     ),
                                   ],
                                 ),
-                                Text(s2[4], style: TextStyle(fontSize: 25)),
+                                Text("  "+s2[4], style: TextStyle(fontSize: 25)),
                               ],
                             ),
                             height: 55,
@@ -333,15 +306,11 @@ class _gamevs1_1State extends State<gamevs1_1> {
                         onPressed: () {
                           setState(() {
                             i = 0;
-                            s1[0] = '';
-                            s1[1] = '';
-                            s1[2] = '';
-                            s2[0] = '';
-                            s2[1] = '';
-                            s2[2] = '';
-                            r[0] = '';
-                            r[1] = '';
-                            r[2] = '';
+                            for(int j = 0 ; j < 3 ; j++){
+                              s1[j] = '';
+                              s2[j] = '';
+                              r[j] = '';
+                            }
                             s1[3] = 0;
                             s2[3] = 0;
                             s1[4] =''; s2[4] = '';
