@@ -300,28 +300,6 @@ class _gamevs1_1State extends State<gamevs1_1> {
                   SizedBox(
                     width: 5,
                   ),
-                  if (i == 3)
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            i = 0;
-                            for(int j = 0 ; j < 3 ; j++){
-                              s1[j] = '';
-                              s2[j] = '';
-                              r[j] = '';
-                            }
-                            s1[3] = 0;
-                            s2[3] = 0;
-                            s1[4] =''; s2[4] = '';
-                            r[3] ='';
-                          });
-                        },
-                        child: Icon(Icons.close),
-                        style: ElevatedButton.styleFrom(
-                            minimumSize: Size(400, 50), primary: Colors.black),
-                      ),
-                    ),
                   if (i < 3)
                     Expanded(
                       child: ElevatedButton(
@@ -343,6 +321,38 @@ class _gamevs1_1State extends State<gamevs1_1> {
                         style: ElevatedButton.styleFrom(
                             minimumSize: Size(400, 50),
                             primary: Color(0xFF0000A0)),
+                      ),
+                    ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  SizedBox(
+                    width: 5,
+                  ),
+                  if (i == 3)
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            i = 0;
+                            for(int j = 0 ; j < 3 ; j++){
+                              s1[j] = '';
+                              s2[j] = '';
+                              r[j] = '';
+                            }
+                            s1[3] = 0;
+                            s2[3] = 0;
+                            s1[4] =''; s2[4] = '';
+                            r[3] ='';
+                          });
+                        },
+                        child: Icon(Icons.close),
+                        style: ElevatedButton.styleFrom(
+                            minimumSize: Size(400, 50), primary: Colors.black),
                       ),
                     ),
                   SizedBox(
